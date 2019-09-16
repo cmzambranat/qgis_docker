@@ -7,7 +7,7 @@ jobs:
      - run:
            name: "Build qgis_docker Container"
            command: |
-            docker build -f Dockerfile -t qgis_docker .
+            docker build -f Dockerfile -t cmzambrana/qgis .
      - deploy:
            name: "Push to Docker Hub"
            command: |
