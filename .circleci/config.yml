@@ -1,6 +1,6 @@
 version: 2
 jobs:
- uyuni:
+ qgis_docker:
    machine: true
    steps:
      - checkout
