@@ -1,0 +1,22 @@
+version: 2
+jobs:
+ uyuni:
+   machine: true
+   steps:
+     - checkout
+     - run:
+           name: "Build qgis_docker Container"
+           command: |
+            docker build -f Dockerfile.qgis_docker -t cmzambranat/qgis_docker .
+     - deploy:
+           name: "Push to Docker Hub"
+           command: |
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
+                docker push cmzambranat/qgis_docker
+              fi
+workflows:
+   version: 2
+   commit:
+     jobs:
+       - qgis_docker
