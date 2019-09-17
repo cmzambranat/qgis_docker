@@ -7,13 +7,13 @@ jobs:
      - run:
            name: "Build qgis_docker Container"
            command: |
-            docker build -f Dockerfile -t cmzambranat/qgis .
+            docker build -f Dockerfile -t cmzambranat/qgis:latest .
      - deploy:
            name: "Push to Docker Hub"
            command: |
               if [ "${CIRCLE_BRANCH}" == "master" ]; then
                 docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
-                docker push cmzambranat/qgis
+                docker push cmzambranat/qgis:latest
               fi
 workflows:
    version: 2
