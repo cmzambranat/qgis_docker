@@ -12,7 +12,7 @@ RUN \
 #Install preliminary files
 RUN \
   #apt-get update && \
-  #export DEBIAN_FRONTEND=noninteractive && \
+  export DEBIAN_FRONTEND=noninteractive && \
   #apt-get -y install ca-certificates apt-utils wget tzdata && \
   apt-get install -y apt-utils wget && \
   wget --no-check-certificate -O - https://qgis.org/downloads/qgis-2019.gpg.key | gpg --batch --yes --import && \
