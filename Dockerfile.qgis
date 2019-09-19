@@ -25,7 +25,7 @@ RUN \
   add-apt-repository -s 'deb https://qgis.org/ubuntu/ bionic main' && \
   apt-get update && \
   apt-get install -y python-qgis qgis qgis-plugin-grass && \
-  apt-get install -y install python-numpy python-scipy python-matplotlib python-pandas python-sympy python-nose && \
+  apt-get install -y python-numpy python-scipy python-matplotlib python-pandas python-sympy python-nose && \
   apt-get remove -y --purge qt4-qmake cmake-data qt4-linguist-tools libqt4-dev-bin && \
   apt-get remove -y --purge libqt4* libgtk* libsane gfortran-5 *gnome* libsane *pango* glib* *gphoto* && \
   apt-get remove -y --purge build-essential gnupg software-properties-common apt-utils wget && \
