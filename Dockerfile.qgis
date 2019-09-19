@@ -14,12 +14,12 @@ RUN \
   #apt-get update && \
   #export DEBIAN_FRONTEND=noninteractive && \
   #apt-get -y install ca-certificates apt-utils wget tzdata && \
-  apt-get install wget && \
+  apt-get install -y apt-utils wget && \
   wget --no-check-certificate -O - https://qgis.org/downloads/qgis-2019.gpg.key | gpg --batch --yes --import && \
   gpg --yes --batch --fingerprint 51F523511C7028C3 && \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3 && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
   #/bin/ln -sf /usr/share/zoneinfo/Etc/Zulu  /etc/localtime && \
-  #dpkg-reconfigure -f noninteractive tzdata 
+  #dpkg-reconfigure -f noninteractive tzdata
 
 #Install the actual QGIS package, than perform cleanup
 RUN \
