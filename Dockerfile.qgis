@@ -11,10 +11,9 @@ RUN \
 
 #Install preliminary files
 RUN \
-  #apt-get update && \
+  apt-get update && \
   export DEBIAN_FRONTEND=noninteractive && \
-  #apt-get -y install ca-certificates apt-utils wget tzdata && \
-  apt-get install -y apt-utils wget && \
+  apt-get -y install ca-certificates apt-utils wget tzdata && \
   wget --no-check-certificate -O - https://qgis.org/downloads/qgis-2019.gpg.key | gpg --batch --yes --import && \
   gpg --yes --batch --fingerprint 51F523511C7028C3 && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
@@ -25,7 +24,7 @@ RUN \
 RUN \
   add-apt-repository -s 'deb https://qgis.org/ubuntu/ bionic main' && \
   apt-get update && \
-  apt-get install -y python-numpy python-scipy python-matplotlib python-pandas python-sympy python-nose && \
+  apt-get install -y python3-numpy python3-scipy python3-matplotlib && \
   apt-get install -y python-qgis qgis qgis-plugin-grass && \
   #apt-get remove -y --purge qt4-qmake cmake-data qt4-linguist-tools libqt4-dev-bin && \
   #apt-get remove -y --purge libqt4* libgtk* libsane gfortran-5 *gnome* libsane *pango* glib* *gphoto* && \
