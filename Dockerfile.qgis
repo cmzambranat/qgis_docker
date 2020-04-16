@@ -5,7 +5,7 @@ RUN \
   #sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y locales locale-gen en_US.UTF-8 \
+  apt-get install -y locales locales-all \
   apt-get install -y build-essential gnupg && \
   apt-get install -y software-properties-common && \
   rm -rf /var/lib/apt/lists/*
