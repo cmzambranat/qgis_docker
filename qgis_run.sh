@@ -14,7 +14,7 @@ cp -n -r data/qgis38-docker/.local $my_profile_dir/
 
 docker run -ti  --rm \
 	-e DISPLAY=$(ipconfig getifaddr en0):0 \
-	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v /tmp/.X11-unix:/tmp/.X11-unix:rw \
 	-v $my_homedir:/mnt/ext_home/ \
 	-v $my_files_dir:/root/qgis38-files \
 	-v $my_profile_dir:/root/ \

@@ -6,10 +6,10 @@
 #RafDouglas C. Tommasi 2019
 #released under GPL3
 
-container_id=$(docker ps|grep 'rafdouglas/qgis_desktop'|head -1|awk '{print $1}')
+container_id=$(docker ps|grep 'cmzambranat/qgis:latest'|head -1|awk '{print $1}')
 
 if [ -z "$container_id" ]; then
-	echo 'No container running rafdouglas/qgis_desktop was found. Exiting.'
+	echo 'No container running cmzambranat/qgis was found. Exiting.'
 	exit
 fi
 
