@@ -5,11 +5,11 @@ RUN \
   #sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
   apt-get -y upgrade && \
+  apt-get install -y locales locale-gen en_US.UTF-8 \
   apt-get install -y build-essential gnupg && \
   apt-get install -y software-properties-common && \
-  rm -rf /var/lib/apt/lists/* && \
-  apt-get install -y locales && \
-  locale-gen en_US.UTF-8
+  rm -rf /var/lib/apt/lists/*
+
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 #Install preliminary files
