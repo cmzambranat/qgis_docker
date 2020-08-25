@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-
 # Install the bases and upgrade the system
 RUN \
   #sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
@@ -9,9 +8,7 @@ RUN \
   apt-get install -y build-essential gnupg && \
   apt-get install -y software-properties-common && \
   rm -rf /var/lib/apt/lists/*
-
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
-
 #Install preliminary files
 RUN \
   apt-get update && \
@@ -22,7 +19,6 @@ RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
   #/bin/ln -sf /usr/share/zoneinfo/Etc/Zulu  /etc/localtime && \
   #dpkg-reconfigure -f noninteractive tzdata
-
 #Install the actual QGIS package, than perform cleanup
 RUN \
   add-apt-repository -s 'deb https://qgis.org/ubuntu/ bionic main' && \
@@ -33,17 +29,13 @@ RUN \
   #apt-get remove -y --purge libqt4* libgtk* libsane gfortran-5 *gnome* libsane *pango* glib* *gphoto* && \
   #apt-get remove -y --purge build-essential gnupg software-properties-common apt-utils wget && \
   apt-get clean
-
 #Create directories to be used 
 RUN \
   mkdir -p /root/ && \
   mkdir -p /root/qgis38-files 
-
 # Set environment variables.
 ENV HOME /root
-
 # Define working directory.
 WORKDIR /root
-
 # Define default command.
 CMD ["qgis"]
