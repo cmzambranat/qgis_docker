@@ -16,8 +16,8 @@ RUN \
   export DEBIAN_FRONTEND=noninteractive && \
   apt-get -y install ca-certificates apt-utils wget tzdata && \
   #wget --no-check-certificate -O - https://qgis.org/downloads/qgis-2019.gpg.key | gpg --batch --yes --import && \
-  wget -qO - https://qgis.org/downloads/qgis-2020.gpg.key | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import && \
-  gpg --yes --batch --fingerprint F7E06F06199EF2F2 && \
+  wget -O - https://qgis.org/downloads/qgis-2020.gpg.key | gpg --import && \
+  gpg --fingerprint F7E06F06199EF2F2 && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-key F7E06F06199EF2F2
   #/bin/ln -sf /usr/share/zoneinfo/Etc/Zulu  /etc/localtime && \
   #dpkg-reconfigure -f noninteractive tzdata
